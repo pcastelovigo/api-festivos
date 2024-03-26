@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import dill as pickle
-from unidecode import unidecode
 
 app = FastAPI()
 
