@@ -1,4 +1,3 @@
-Datos para galicia:
+Datos para Galicia:
 
-	CC BY 3.0 ES Deed Xunta de Galicia
-	https://creativecommons.org/licenses/by/3.0/es/deed.gl
+© Xunta de Galicia, CC BY 3.0 ES Deed, https://creativecommons.org/licenses/by/3.0/es/deed.gl
