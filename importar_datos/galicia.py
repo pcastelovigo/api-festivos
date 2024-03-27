@@ -2,10 +2,8 @@ import openpyxl
 from datetime import datetime
 import dill as pickle
 import re
+import os
 from unidecode import unidecode
-año = 0
-festivos = []
-
 
 class Festivo:
 	def __init__(self, fecha, nombre, estado, autonomia, provincia, localidad):
@@ -31,6 +29,14 @@ def cargar_datos(fichero_excel):
 			fecha = datetime.strptime(row[0], '%Y-%m-%d')
 		else:
 			fecha = row[0]
+
+		##CORRIGE ERRATA
+		if fecha.year == 2024:
+			sheet["C327"].value = "municipal"
+			sheet["E327"].value = "Vilalba"
+		##
+
+
 		if row[2] == "municipal":
 			festivo = Festivo(fecha.strftime('%Y-%m-%d'), row[1], "es", "gl", None, asciificador(row[4]))
 
@@ -41,12 +47,13 @@ def cargar_datos(fichero_excel):
 			festivo = Festivo(fecha.strftime('%Y-%m-%d'), row[1], "es", None, None, None)
 
 		festivos.append(festivo)
-	print(fecha.year)
 	global año
 	año = fecha.year
 
-fichero_excel = "fuentes/calendario_laboral_2024.xlsx"
-cargar_datos(fichero_excel)
-
-with open(f'../datos/{año}-es-gl.dat', 'wb') as fichero:
-    pickle.dump(festivos, fichero)
+for fichero in os.scandir('fuentes/galicia/'):
+	año = 0
+	festivos = []
+	if fichero.name.endswith('.xlsx'):
+		cargar_datos(fichero)
+	with open(f'../datos/{año}-es-gl.dat', 'wb') as fichero:
+	    pickle.dump(festivos, fichero)
