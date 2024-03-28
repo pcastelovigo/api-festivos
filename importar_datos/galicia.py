@@ -14,6 +14,16 @@ class Festivo:
 		self.provincia = provincia
 		self.localidad = localidad
 
+def json(self):
+	return {
+	'fecha': self.fecha,
+	'nombre': self.nombre,
+	'estado': self.estado,
+	'autonomia': self.autonomia,
+	'localidad': self.localidad
+	}
+
+
 def asciificador(texto):
 	texto = re.sub(r'\s', '-', texto)
 	texto = re.sub(r'\.', '_', texto)
@@ -50,10 +60,11 @@ def cargar_datos(fichero_excel):
 	global año
 	año = fecha.year
 
+
 for fichero in os.scandir('fuentes/galicia/'):
 	año = 0
 	festivos = []
 	if fichero.name.endswith('.xlsx'):
 		cargar_datos(fichero)
 	with open(f'../datos/{año}-es-gl.dat', 'wb') as fichero:
-	    pickle.dump(festivos, fichero)
+		pickle.dump(festivos, fichero)

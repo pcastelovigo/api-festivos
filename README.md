@@ -1,5 +1,9 @@
 # api-festivos
 
+Requisitos:
+
+    · Instalar dependencias => pip install -r requirements.txt
+
 Para lanzar:
 
     uvicorn main:app --reload
