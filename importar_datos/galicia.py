@@ -56,7 +56,7 @@ def cargar_datos(fichero_excel):
 		elif row[2] == "estatal":
 			festivo = Festivo(fecha.strftime('%Y-%m-%d'), row[1], "es", None, None, None)
 
-		festivos.append(festivo)
+		festivos.append(festivo.json())
 	global año
 	año = fecha.year
 
