@@ -20,9 +20,7 @@ async def read_item(anho):
 @app.get("/{anho}/{pais}")
 @app.get("/{anho}/{pais}/{region}")
 @app.get("/{anho}/{pais}/{region}/{localidad}")
-async def get_holiday(anho, pais=None,
-							region=None,
-							localidad=None):
+async def get_holiday(anho, pais=None,region=None,localidad=None):
 	if localidad is not None:
 		day_type = LOCAL_DAY
 	elif region is not None:

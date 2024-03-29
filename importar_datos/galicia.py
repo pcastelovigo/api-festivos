@@ -14,14 +14,14 @@ class Festivo:
 		self.provincia = provincia
 		self.localidad = localidad
 
-def json(self):
-	return {
-	'fecha': self.fecha,
-	'nombre': self.nombre,
-	'estado': self.estado,
-	'autonomia': self.autonomia,
-	'localidad': self.localidad
-	}
+	def json(self):
+		return {
+		'fecha': self.fecha,
+		'nombre': self.nombre,
+		'estado': self.estado,
+		'autonomia': self.autonomia,
+		'localidad': self.localidad
+		}
 
 
 def asciificador(texto):
@@ -56,7 +56,7 @@ def cargar_datos(fichero_excel):
 		elif row[2] == "estatal":
 			festivo = Festivo(fecha.strftime('%Y-%m-%d'), row[1], "es", None, None, None)
 
-		festivos.append(festivo.json())
+		festivos.append(festivo)
 	global año
 	año = fecha.year
 
