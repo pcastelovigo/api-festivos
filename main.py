@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status, HTTPException
+from fastapi import FastAPI, status, HTTPException, Path
 from fastapi.responses import JSONResponse
 import dill as pickle
 
@@ -24,14 +24,21 @@ async def read_item(anho):
 @app.get("/{anho}/{pais}")
 @app.get("/{anho}/{pais}/{region}")
 @app.get("/{anho}/{pais}/{region}/{localidad}")
-async def get_holiday(anho, pais, region=None, localidad=None) -> JSONResponse:
+async def get_holiday(anho: str = Path(..., description="el año", ),
+					  pais = Path(..., description="el codigo ISO de pais (obligado)", ),
+					  region=Path(..., description="el codigo ISO de comunidad autonoma", ),
+					  localidad=Path(..., description="el nombre de localidad", )) -> JSONResponse:
 	"""
 	Devuelve el objeto JSON con la lista de dias festivos para los parametros entrantes
 
-	:parameter anho: el año como entero (obligado)
+	:parameter anho: el año (obligado)
+
 	:parameter pais: el codigo ISO de pais (obligado)
+
 	:parameter region: el codigo ISO de comunidad autonoma (opcional), None por defecto
+
 	:parameter localidad: el nombre de localidad (opcional), None por defecto
+
 	:returns la lista de festivos
 	"""
 	if localidad is not None:
