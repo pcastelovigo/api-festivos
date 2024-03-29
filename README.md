@@ -21,3 +21,4 @@ Ejemplo
 
 En las rutas no hay acentos ni dieresis, "ñ" es "n", "ç" es "c", espacios son guiones y puntos guiones bajos.
 
+Licencia de los datos Galicia: http://creativecommons.org/licenses/by/3.0/es/deed.gl Xunta de Galicia
