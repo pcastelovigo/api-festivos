@@ -7,8 +7,17 @@ app = FastAPI()
 NATIONAL_DAY, REGION_DAY, LOCAL_DAY = range(3)
 
 
+@app.get("/favicon.ico")
+async def favicon():
+	"""
+	Devuelve a navegadores una respuest vacía para el favicon
+	:return: un diccionario vacío
+	"""
+	return {}
+
+
 @app.get("/version")
-async def version() -> dict:
+async def version():
 	"""
 	Devuelve al usuario el numero de version actual de esta API
 	:return: el JSON con el numero de version
@@ -24,10 +33,11 @@ async def read_item(anho):
 @app.get("/{anho}/{pais}")
 @app.get("/{anho}/{pais}/{region}")
 @app.get("/{anho}/{pais}/{region}/{localidad}")
-async def get_holiday(anho: str = Path(..., description="el año", ),
-					  pais = Path(..., description="el codigo ISO de pais (obligado)", ),
-					  region=Path(..., description="el codigo ISO de comunidad autonoma", ),
-					  localidad=Path(..., description="el nombre de localidad", )) -> JSONResponse:
+
+async def get_holiday(anho,
+					  pais,
+					  region=None,
+					  localidad=None) -> JSONResponse:
 	"""
 	Devuelve el objeto JSON con la lista de dias festivos para los parametros entrantes
 
