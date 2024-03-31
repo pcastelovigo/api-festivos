@@ -1,5 +1,6 @@
 import re
 from unidecode import unidecode
+import datetime as dt
 
 
 class Festivo:
@@ -24,6 +25,10 @@ class Festivo:
 		self.provincia = provincia
 		self.localidad = self.__convert_to_ascii(localidad)
 
+	@property
+	def date(self):
+		return dt.datetime.strptime(self.fecha, '%Y-%m-%d')
+
 	def json(self):
 		"""
 		Devuelve los datos del festivo como un diccionario
@@ -44,3 +49,15 @@ class Festivo:
 			texto = texto.lower()
 			return unidecode(texto)
 		return None
+
+	def __eq__(self, other):
+		return self.date == other.date
+
+	def __gt__(self, other):
+		return self.date > other.date
+
+	def __lt__(self, other):
+		return self.date < other.date
+
+	def __hash__(self):
+		return hash(self.date)

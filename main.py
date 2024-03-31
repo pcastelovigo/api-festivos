@@ -33,7 +33,6 @@ async def read_item(anho):
 @app.get("/{anho}/{pais}")
 @app.get("/{anho}/{pais}/{region}")
 @app.get("/{anho}/{pais}/{region}/{localidad}")
-
 async def get_holiday(anho,
 					  pais,
 					  region=None,
