@@ -21,7 +21,7 @@ def cargar_datos(fichero_excel, year):
 			}
 			if not row[5].startswith("Todos"):
 				init_params['provincia'] = row[5]
-				init_params['autonomia'] = 'eu'
+				init_params['autonomia'] = 'pv'
 
 			if row[6]:
 				init_params['localidad'] = row[3]
@@ -35,5 +35,5 @@ if __name__ == "__main__":
 	for fichero in os.scandir('fuentes/euskadi/'):
 		year = fichero.name.split('.')[0][-4:]
 		festivos = cargar_datos(fichero, year)
-		with open(f'../datos/{year}-es-eu.dat', 'wb') as fichero:
+		with open(f'../datos/{year}-es-pv.dat', 'wb') as fichero:
 			pickle.dump(festivos, fichero)

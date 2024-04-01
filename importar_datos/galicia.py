@@ -31,9 +31,9 @@ def cargar_datos(fichero_excel, year):
 			}
 			if row[2] == "municipal":
 				init_params['localidad'] = row[4]
-				init_params['autonomia'] = 'gl'
+				init_params['autonomia'] = 'ga'
 			elif row[2] == "autonómico":
-				init_params['autonomia'] = 'gl'
+				init_params['autonomia'] = 'ga'
 
 			festivo = Festivo(**init_params)
 			festivos.append(festivo)
@@ -44,5 +44,5 @@ if __name__ == "__main__":
 	for fichero in os.scandir('fuentes/galicia/'):
 		in_year = fichero.name.split('.')[0][-4:]
 		festivos = cargar_datos(fichero, in_year)
-		with open(f'../datos/{in_year}-es-gl.dat', 'wb') as fichero:
+		with open(f'../datos/{in_year}-es-ga.dat', 'wb') as fichero:
 			pickle.dump(festivos, fichero)

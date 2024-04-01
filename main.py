@@ -56,7 +56,7 @@ async def get_holiday(anho,
 		day_type = REGION_DAY
 	else:
 		day_type = NATIONAL_DAY
-		region = 'gl'
+		region = 'ga'
 	filename = f"datos/{anho}-{pais}-{region}.dat"
 	try:
 		result = await build_holidays_list(day_type, filename, localidad)
