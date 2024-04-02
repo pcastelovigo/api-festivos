@@ -50,14 +50,21 @@ class Festivo:
 			return unidecode(texto)
 		return None
 
+	def __repr__(self):
+		return f'[{self.date} | {self.estado}-{self.autonomia} {self.localidad}]'
+
 	def __eq__(self, other):
-		return self.date == other.date
+		return self.date == other.date and (self.localidad is None or self.localidad == other.localidad)
 
 	def __gt__(self, other):
+		if self.date == other.date:
+			return self.localidad > other.localidad
 		return self.date > other.date
 
 	def __lt__(self, other):
+		if self.date == other.date:
+			return self.localidad < other.localidad
 		return self.date < other.date
 
 	def __hash__(self):
-		return hash(self.date)
+		return hash(self.date) + hash(self.localidad)
