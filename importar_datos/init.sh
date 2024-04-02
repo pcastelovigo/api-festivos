@@ -11,4 +11,4 @@ curl -k --create-dirs https://www.juntadeandalucia.es/datosabiertos/portal/datas
 python3 asturias.py
 python3 euskadi.py
 python3 galicia.py
-
+python3 andalucia.py
