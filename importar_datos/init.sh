@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 
 # Descarga de CCAAs
 curl -k --create-dirs https://ficheiros-web.xunta.gal/abertos/calendarios/calendario_laboral_2023.xlsx -o fuentes/galicia/2023.xlsx
