@@ -1,7 +1,7 @@
 import os
 import dill as pickle
 import openpyxl
-from importar_datos.models.holiday import Festivo
+from models.holiday import Festivo
 
 
 def cargar_datos(fichero_excel, year):

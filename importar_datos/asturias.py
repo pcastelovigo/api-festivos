@@ -2,7 +2,7 @@ import os
 import dill as pickle
 import openpyxl
 
-from importar_datos.models.holiday import Festivo
+from models.holiday import Festivo
 from workalendar.europe import Asturias
 
 

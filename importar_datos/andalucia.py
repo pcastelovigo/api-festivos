@@ -5,7 +5,7 @@ import xlrd
 import datetime as dt
 from workalendar.europe import Andalusia
 
-from importar_datos.models.holiday import Festivo
+from models.holiday import Festivo
 
 
 def cargar_datos(fichero_excel, year):

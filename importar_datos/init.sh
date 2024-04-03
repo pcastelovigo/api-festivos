@@ -8,6 +8,7 @@ curl -k --create-dirs https://opendata.euskadi.eus/contenidos/ds_eventos/calenda
 curl -k --create-dirs https://www.juntadeandalucia.es/datosabiertos/portal/dataset/12ea04e9-0a43-45c0-b31d-02763ee53feb/resource/c74d0d5e-15e2-48f3-a107-3f3babcee085/download/calendario_locales_2024.xls -o fuentes/andalucia/2024.xls
 
 # Generacion de ficheros .dat
+mkdir -p ../datos/
 python3 asturias.py
 python3 euskadi.py
 python3 galicia.py
