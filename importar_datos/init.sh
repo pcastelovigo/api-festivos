@@ -12,6 +12,8 @@ curl -k --create-dirs https://analisi.transparenciacatalunya.cat/api/views/b4eh-
 
 # Generacion de ficheros .dat
 mkdir -p ../datos/
+mkdir -p ../models/
+ln -s -r ./models/holiday.py ../models/holiday.py
 python3 asturias.py
 python3 euskadi.py
 python3 galicia.py

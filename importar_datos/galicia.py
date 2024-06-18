@@ -46,3 +46,6 @@ if __name__ == "__main__":
 		festivos = cargar_datos(fichero, in_year)
 		with open(f'../datos/{in_year}-es-ga.dat', 'wb') as fichero:
 			pickle.dump(festivos, fichero)
+                #retrocompatibilidade con endpoint antigo
+		with open(f'../datos/{in_year}-es-gl.dat', 'wb') as fichero:
+			pickle.dump(festivos, fichero)

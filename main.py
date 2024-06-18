@@ -1,6 +1,7 @@
 from fastapi import FastAPI, status, HTTPException, Path
 from fastapi.responses import JSONResponse
 import dill as pickle
+from models.holiday import Festivo
 
 app = FastAPI()
 
