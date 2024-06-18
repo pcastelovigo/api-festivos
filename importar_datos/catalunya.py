@@ -3,7 +3,7 @@ import os
 import datetime as dt
 
 import dill as pickle
-from importar_datos.models.holiday import Festivo
+from models.holiday import Festivo
 from workalendar.europe import Catalonia
 
 
