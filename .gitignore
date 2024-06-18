@@ -1,3 +1,4 @@
 datos/
-importar_datos/
+importar_datos/fuentes/
+models/
 __pycache__/
