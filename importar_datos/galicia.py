@@ -16,6 +16,8 @@ def cargar_datos(fichero_excel, year):
 		if year == '2024':
 			sheet["C327"].value = "municipal"
 			sheet["E327"].value = "Vilalba"
+		if year == '2025':
+			sheet["A12"].value = "2025-12-08"
 
 		for row in sheet.iter_rows(min_row=2, values_only=True):
 			if isinstance(row[0], str):
