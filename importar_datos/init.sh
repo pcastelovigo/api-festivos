@@ -11,5 +11,6 @@ mkdir -p ../datos/
 mkdir -p ../models/
 ln -s -r ./models/holiday.py ../models/holiday.py
 
-python3 galicia.py
+#Primero generico con holiday y luego se reescribe
 python3 espana.py
+python3 galicia.py
