@@ -22,3 +22,19 @@ Ejemplo
 
 
 En las rutas no hay acentos ni dieresis, "ñ" es "n", "ç" es "c", espacios son guiones y puntos guiones bajos.
+
+
+# Cobertura
+
+A fecha de 31/05/2025 tiene los datos locales para Galicia y autonómicos para el resto de España
+
+Los datos locales deben ser obtenidos cada año de las listas publicadas por cada comunidad autonoma, puesto que los ayuntamientos tienen la potestad de marcar sus propios festivos y cambiarlos cada año
+
+
+# Contribuir
+
+Las comunidades sacan las listas de festivos en diversos formatos: excel, csv, ficheros de texto, JSON...
+
+Normalmente a finales de año dan la lista para el año siguiente. Muchos se publican en https://datos.gob.es/es/
+
+Si haces un PR para la carpeta importar_datos será muy bienvenido.
