@@ -90,7 +90,7 @@ async def build_holidays_list(day_type, filename, localidad):
 	result = []
 	for festivo in datos:
 		if day_belongs_to_type(festivo, day_type):
-			if festivo.localidad is None or festivo.localidad == localidad:
+			if festivo.localidad is None or festivo.localidad == localidad.lower():
 				result.append(festivo.json())
 	return result
 
@@ -124,4 +124,4 @@ def is_only_local(festivo, localidad):
 	:param localidad: la localidad deseada
 	:return: True si el festivo es de esta localidad, False en otro caso
 	"""
-	return festivo.get('localidad', None) is not None and festivo['localidad'] == localidad
+	return festivo.get('localidad', None) is not None and festivo['localidad'] == localidad.lower()
