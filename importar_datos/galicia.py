@@ -17,6 +17,18 @@ def cargar_datos(fichero_excel, year):
 			sheet["E327"].value = "Vilalba"
 		if year == '2025':
 			sheet["A12"].value = "2025-12-08"
+		if year == '2026':
+			def fix_encoding(s):
+				try:
+					return s.encode("latin1").decode("utf-8")
+				except:
+					return s
+			ws = wb.active
+			for row in ws.iter_rows(values_only=False):
+				for cell in row:
+					if isinstance(cell.value, str):
+						cell.value = fix_encoding(cell.value)
+
 
 		for row in sheet.iter_rows(min_row=2, values_only=True):
 			if isinstance(row[0], str):
